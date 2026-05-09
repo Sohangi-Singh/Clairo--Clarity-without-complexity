@@ -14,7 +14,7 @@ I didn't build Clairo because AI is trending.
 
 I built it because I watched my parents struggle.
 
-My dad spent an entire evening trying to write a formal complaint letter to a government office. He kept asking me to check if it sounded right. My mom received a medical report and had no idea what her blood sugar and haemoglobin numbers meant — she was anxious for two days before her next doctor's appointment.
+My dad spent an entire evening trying to copy a formal business document word by word and re-write the document's scanned pdf into an editable word document. My grand mother received a medical report and had no idea what her blood sugar and haemoglobin numbers meant — she was anxious for two days before her next doctor's appointment.
 
 Both of these problems could have been solved in under 60 seconds with AI.
 
@@ -277,11 +277,10 @@ Not just for people who know how to use it.
 If that belief resonates with you, I'd love to talk.
 
 — Sohangi Singh
-  sohangisingh@gmail.com
-  https://www.linkedin.com/in/sohangi-singh-b43232373/
+  E-Mail- sohangisingh@gmail.com
+  [LinkedIn](https://www.linkedin.com/in/sohangi-singh-b43232373/)
 
 ---
 
 ## License
-
-MIT License. See [LICENSE](./LICENSE) for details.
+All rights are reserved.
