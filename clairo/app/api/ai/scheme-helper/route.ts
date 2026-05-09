@@ -13,8 +13,9 @@ export async function POST(req: NextRequest) {
     });
     const stream = await generateWithGemini("pro", prompt, "Find eligible government schemes.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to find schemes", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to find schemes";
+    return new Response(message, { status: 500 });
   }
 }
 

@@ -44,7 +44,7 @@ export default function ReceiptScannerPage() {
   const [category, setCategory] = useState("auto");
   const [outputFormat, setOutputFormat] = useState("summary");
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/receipt-scanner" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/receipt-scanner" });
   const { files, addFiles, removeFile } = useUpload();
   const { addToHistory } = useHistory();
 
@@ -84,7 +84,7 @@ export default function ReceiptScannerPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="🧾" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="🧾" />
       {output && (
         <>
           <TrustIndicator level="green" message="Looks complete — ready to use" />

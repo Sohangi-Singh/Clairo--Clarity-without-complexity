@@ -33,8 +33,9 @@ export async function POST(req: NextRequest) {
     const userMessage = mode === "write" ? "Write the email." : "Write the email reply.";
     const stream = await generateWithGemini("flash", prompt, userMessage);
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to generate email", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to generate email";
+    return new Response(message, { status: 500 });
   }
 }
 

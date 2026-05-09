@@ -38,7 +38,7 @@ export default function SchemeHelperPage() {
   const [state, setState] = useState("");
   const [category, setCategory] = useState("");
 
-  const { output, loading, generate } = useAI({ endpoint: "/api/ai/scheme-helper" });
+  const { output, loading, error, generate } = useAI({ endpoint: "/api/ai/scheme-helper" });
   const { addToHistory } = useHistory();
 
   const handleFind = async () => {
@@ -67,7 +67,7 @@ export default function SchemeHelperPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="🏛️" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="🏛️" />
       {output && (
         <>
           <TrustIndicator level="yellow" message="Recommended to verify eligibility" disclaimer="Always verify at the official government portal before applying." />

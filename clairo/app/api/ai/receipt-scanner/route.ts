@@ -16,8 +16,9 @@ export async function POST(req: NextRequest) {
 
     const stream = await generateWithVision("pro", prompt, imageParts, "Analyze these receipts.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to scan receipts", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to scan receipts";
+    return new Response(message, { status: 500 });
   }
 }
 

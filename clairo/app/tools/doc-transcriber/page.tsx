@@ -39,7 +39,7 @@ export default function DocTranscriberPage() {
   const [flagUncertain, setFlagUncertain] = useState(true);
   const [preserveLineBreaks, setPreserveLineBreaks] = useState(true);
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/doc-transcriber" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/doc-transcriber" });
   const { files, addFiles, removeFile } = useUpload();
   const { addToHistory } = useHistory();
 
@@ -80,7 +80,7 @@ export default function DocTranscriberPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="📑" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="📑" />
       {output && (
         <>
           <TrustIndicator level="green" message="High accuracy transcription complete" />

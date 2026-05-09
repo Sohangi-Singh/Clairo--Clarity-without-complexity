@@ -17,8 +17,9 @@ export async function POST(req: NextRequest) {
 
     const stream = await generateWithVision("pro", prompt, imageParts, "Explain this medical report in simple terms.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to simplify report", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to simplify report";
+    return new Response(message, { status: 500 });
   }
 }
 

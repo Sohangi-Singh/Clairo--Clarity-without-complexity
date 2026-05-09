@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 
 interface TopBarProps {
@@ -18,7 +19,8 @@ export default function TopBar({ onMenuClick, userName }: TopBarProps) {
         <Menu size={22} />
       </button>
 
-      <Link href="/dashboard" className="flex items-baseline">
+      <Link href="/dashboard" className="flex items-center gap-2">
+        <Image src="/clairo-logo.png" alt="Clairo" width={24} height={24} />
         <span className="logo-wordmark font-display text-[20px] font-semibold">
           <span className="text-[var(--text-primary)]">Cl</span>
           <span className="text-[var(--accent)]">ai</span>

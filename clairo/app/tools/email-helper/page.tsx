@@ -67,7 +67,7 @@ export default function EmailHelperPage() {
   const [length, setLength] = useState(50);
   const [extraNotes, setExtraNotes] = useState("");
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/email-helper" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/email-helper" });
   const { addToHistory } = useHistory();
   const { addFiles } = useUpload();
 
@@ -222,7 +222,7 @@ export default function EmailHelperPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="📧" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="📧" />
       {output && (
         <>
           <TrustIndicator level="green" message="Looks complete — ready to send" />

@@ -48,7 +48,7 @@ export default function LearnAnythingPage() {
   const [urlLoading, setUrlLoading] = useState(false);
   const [explanationStyle, setExplanationStyle] = useState("");
 
-  const { output, loading, generate } = useAI({ endpoint: "/api/ai/learn-anything" });
+  const { output, loading, error, generate } = useAI({ endpoint: "/api/ai/learn-anything" });
   const { addFiles } = useUpload();
   const { addToHistory } = useHistory();
 
@@ -141,7 +141,7 @@ export default function LearnAnythingPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="🎓" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="🎓" />
       {output && (
         <>
           <TrustIndicator level="green" message="Explanation ready" />

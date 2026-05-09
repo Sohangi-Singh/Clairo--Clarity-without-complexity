@@ -25,7 +25,8 @@ export function useAI({ endpoint }: UseAIOptions) {
         });
 
         if (!res.ok) {
-          throw new Error(`Request failed: ${res.status}`);
+          const errorText = await res.text().catch(() => "");
+          throw new Error(errorText || `Request failed: ${res.status}`);
         }
 
         const reader = res.body?.getReader();

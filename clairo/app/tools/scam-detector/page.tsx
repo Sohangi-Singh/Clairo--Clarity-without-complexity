@@ -38,7 +38,7 @@ export default function ScamDetectorPage() {
   const [messageText, setMessageText] = useState("");
   const [source, setSource] = useState("");
 
-  const { output, loading, generate } = useAI({ endpoint: "/api/ai/scam-detector" });
+  const { output, loading, error, generate } = useAI({ endpoint: "/api/ai/scam-detector" });
   const { files, addFiles } = useUpload();
   const { addToHistory } = useHistory();
 
@@ -84,7 +84,7 @@ export default function ScamDetectorPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="🔍" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="🔍" />
       {output && (
         <TrustIndicator level={output.includes("LIKELY A SCAM") ? "red" : output.includes("BE CAREFUL") ? "yellow" : "green"} message={output.includes("LIKELY A SCAM") ? "This looks suspicious — be very careful" : output.includes("BE CAREFUL") ? "Some concerning signs found — proceed with caution" : "This appears to be safe"} disclaimer="If in doubt, do not share personal information or click any links." />
       )}

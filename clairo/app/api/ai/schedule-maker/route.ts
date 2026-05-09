@@ -23,8 +23,9 @@ export async function POST(req: NextRequest) {
 
     const stream = await generateWithGemini("flash", prompt, "Create the schedule.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to create schedule", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to create schedule";
+    return new Response(message, { status: 500 });
   }
 }
 

@@ -75,7 +75,7 @@ export default function ResumeAssistantPage() {
   const [answerFeedback, setAnswerFeedback] = useState("");
   const [feedbackLoading, setFeedbackLoading] = useState(false);
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/resume-assistant" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/resume-assistant" });
   const { addToHistory } = useHistory();
 
   const selectMode = (m: Mode) => {
@@ -278,7 +278,7 @@ export default function ResumeAssistantPage() {
         </div>
       ) : (
         <div>
-          <OutputCard output={output} loading={loading} toolEmoji="💼" />
+          <OutputCard output={output} loading={loading} error={error} toolEmoji="💼" />
           {output && (
             <>
               <TrustIndicator level="green" message="Ready to use" />

@@ -18,8 +18,9 @@ export async function POST(req: NextRequest) {
     });
     const stream = await generateWithGemini("flash", prompt, "Explain this content.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to explain", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to explain";
+    return new Response(message, { status: 500 });
   }
 }
 

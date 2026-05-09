@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { TOOLS } from "@/types";
@@ -41,7 +42,8 @@ export default function LandingPage() {
     <div className="min-h-screen bg-[var(--bg-base)]">
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 bg-[var(--bg-surface)]/80 backdrop-blur-md border-b border-[var(--border)]">
-        <Link href="/" className="flex items-baseline">
+        <Link href="/" className="flex items-center gap-2">
+          <Image src="/clairo-logo.png" alt="Clairo" width={28} height={28} />
           <span className="logo-wordmark font-display text-[24px] font-semibold">
             <span className="text-[var(--text-primary)]">Cl</span>
             <span className="text-[var(--accent)]">ai</span>
@@ -204,14 +206,15 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-6 md:px-12">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-baseline mb-2">
+              <div className="flex items-center gap-2 mb-2">
+                <Image src="/clairo-logo.png" alt="Clairo" width={24} height={24} />
                 <span className="logo-wordmark font-display text-[22px] font-semibold">
                   <span className="text-[var(--text-primary)]">Cl</span>
                   <span className="text-[var(--accent)]">ai</span>
                   <span className="text-[var(--text-primary)]">ro</span>
                 </span>
               </div>
-              <p className="text-[13px] text-[var(--text-tertiary)]">Clarity without complexity</p>
+              <p className="text-[13px] text-[var(--text-tertiary)] ml-[32px]">Clarity without complexity</p>
             </div>
             <div className="grid grid-cols-2 gap-2">
               {TOOLS.slice(0, 6).map((t) => (

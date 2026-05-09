@@ -20,8 +20,9 @@ export async function POST(req: NextRequest) {
 
     const stream = await generateWithGemini("pro", prompt, body.messageText || "Analyze this for scam indicators.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to analyze", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to analyze";
+    return new Response(message, { status: 500 });
   }
 }
 

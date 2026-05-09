@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/Input";
@@ -26,9 +27,13 @@ export default function LoginPage() {
         className="w-full max-w-sm"
       >
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-baseline">
-            <span className="font-display text-[32px] font-semibold text-[var(--accent)]">C</span>
-            <span className="font-display text-[32px] font-semibold text-[var(--text-primary)]">lairo</span>
+          <Link href="/" className="inline-flex items-center gap-2.5 justify-center">
+            <Image src="/clairo-logo.png" alt="Clairo" width={36} height={36} />
+            <span className="logo-wordmark font-display text-[32px] font-semibold">
+              <span className="text-[var(--text-primary)]">Cl</span>
+              <span className="text-[var(--accent)]">ai</span>
+              <span className="text-[var(--text-primary)]">ro</span>
+            </span>
           </Link>
           <p className="text-[15px] text-[var(--text-secondary)] mt-2">Welcome back</p>
         </div>

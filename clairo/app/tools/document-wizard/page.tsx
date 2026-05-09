@@ -60,7 +60,7 @@ export default function DocumentWizardPage() {
   const [tone, setTone] = useState("");
   const [language, setLanguage] = useState("english");
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/document-wizard" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/document-wizard" });
   const { addToHistory } = useHistory();
 
   const handleGenerate = async () => {
@@ -154,7 +154,7 @@ export default function DocumentWizardPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="📄" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="📄" />
       {output && (
         <>
           <TrustIndicator level="green" message="Looks complete — ready to use" />

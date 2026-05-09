@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -70,14 +71,15 @@ export default function Sidebar({ familyMode, onFamilyModeChange }: SidebarProps
     <aside className="hidden lg:flex flex-col w-[256px] h-screen border-r border-[var(--border)] bg-[var(--bg-surface)] fixed left-0 top-0 z-30">
       {/* Logo */}
       <div className="px-5 py-5 border-b border-[var(--border)]">
-        <Link href="/dashboard" className="flex items-baseline gap-0">
+        <Link href="/dashboard" className="flex items-center gap-2">
+          <Image src="/clairo-logo.png" alt="Clairo" width={28} height={28} className="flex-shrink-0" />
           <span className="logo-wordmark font-display text-[22px] font-semibold">
             <span className="text-[var(--text-primary)]">Cl</span>
             <span className="text-[var(--accent)]">ai</span>
             <span className="text-[var(--text-primary)]">ro</span>
           </span>
         </Link>
-        <p className="text-[11px] text-[var(--text-tertiary)] mt-0.5">
+        <p className="text-[11px] text-[var(--text-tertiary)] mt-0.5 ml-[36px]">
           Clarity without complexity
         </p>
       </div>

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import OptionCard from "@/components/ui/OptionCard";
 import Button from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
@@ -48,7 +49,9 @@ export default function OnboardingPage() {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.5 }}
+                className="flex items-center justify-center gap-3"
               >
+                <Image src="/clairo-logo.png" alt="Clairo" width={52} height={52} />
                 <span className="logo-wordmark font-display text-[48px] font-semibold">
                   <span className="text-[var(--text-primary)]">Cl</span>
                   <span className="text-[var(--accent)]">ai</span>

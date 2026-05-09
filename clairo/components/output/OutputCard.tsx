@@ -2,17 +2,19 @@
 
 import { motion } from "framer-motion";
 import Skeleton from "../ui/Skeleton";
-import { FileText } from "lucide-react";
+import { FileText, AlertCircle } from "lucide-react";
 
 interface OutputCardProps {
   output: string;
   loading: boolean;
+  error?: string | null;
   toolEmoji?: string;
 }
 
 export default function OutputCard({
   output,
   loading,
+  error,
   toolEmoji = "📄",
 }: OutputCardProps) {
   return (
@@ -35,7 +37,25 @@ export default function OutputCard({
           </div>
         )}
 
-        {!loading && !output && (
+        {!loading && error && (
+          <div className="flex flex-col items-center justify-center gap-3 py-8 text-center">
+            <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
+              <AlertCircle size={20} className="text-red-500" />
+            </div>
+            <p className="text-[14px] font-medium text-red-600 dark:text-red-400">
+              Something went wrong
+            </p>
+            <p className="text-[13px] text-[var(--text-tertiary)] max-w-[280px]">
+              {error.includes("429") || error.includes("quota")
+                ? "The AI service is temporarily busy. Please wait a moment and try again."
+                : error.includes("404")
+                ? "AI model not available. Please contact support."
+                : "Could not generate a result. Please try again."}
+            </p>
+          </div>
+        )}
+
+        {!loading && !output && !error && (
           <div className="flex flex-col items-center justify-center gap-3 py-8 text-center">
             <div className="w-12 h-12 rounded-full bg-[var(--bg-elevated)] flex items-center justify-center">
               <FileText size={20} className="text-[var(--text-tertiary)]" />

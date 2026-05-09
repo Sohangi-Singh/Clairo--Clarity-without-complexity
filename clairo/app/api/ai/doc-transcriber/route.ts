@@ -17,8 +17,9 @@ export async function POST(req: NextRequest) {
 
     const stream = await generateWithVision("pro", prompt, imageParts, "Transcribe this document with extreme accuracy.");
     return streamResponse(stream);
-  } catch {
-    return new Response("Failed to transcribe document", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to transcribe document";
+    return new Response(message, { status: 500 });
   }
 }
 

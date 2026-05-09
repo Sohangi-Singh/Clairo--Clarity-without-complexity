@@ -78,7 +78,7 @@ export default function WhatsAppAssistantPage() {
   // Bulk reply state
   const [bulkMessages, setBulkMessages] = useState<string[]>(["", "", ""]);
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/whatsapp-assistant" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/whatsapp-assistant" });
   const { addToHistory } = useHistory();
 
   const handleGenerate = async () => {
@@ -209,7 +209,7 @@ export default function WhatsAppAssistantPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="💬" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="💬" />
       {output && (
         <>
           <TrustIndicator level="green" message="Ready to send" />

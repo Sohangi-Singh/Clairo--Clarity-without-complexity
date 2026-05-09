@@ -41,8 +41,9 @@ export async function POST(req: NextRequest) {
     return new Response(readable, {
       headers: { "Content-Type": "text/plain; charset=utf-8" },
     });
-  } catch {
-    return new Response("Sorry, something went wrong. Please try again.", {
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Sorry, something went wrong. Please try again.";
+    return new Response(message, {
       status: 500,
     });
   }

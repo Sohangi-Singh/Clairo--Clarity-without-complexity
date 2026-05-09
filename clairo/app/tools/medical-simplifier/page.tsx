@@ -45,7 +45,7 @@ export default function MedicalSimplifierPage() {
   const [reportType, setReportType] = useState("");
   const [explanationStyle, setExplanationStyle] = useState("");
 
-  const { output, loading, generate } = useAI({ endpoint: "/api/ai/medical-simplifier" });
+  const { output, loading, error, generate } = useAI({ endpoint: "/api/ai/medical-simplifier" });
   const { files, addFiles, removeFile } = useUpload();
   const { addToHistory } = useHistory();
 
@@ -85,7 +85,7 @@ export default function MedicalSimplifierPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="🏥" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="🏥" />
       {output && (
         <>
           <TrustIndicator level="yellow" message="This is for understanding only" disclaimer="Always consult your doctor for medical advice." />

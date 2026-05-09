@@ -67,7 +67,7 @@ export default function ScheduleMakerPage() {
   const [subjects, setSubjects] = useState<string[]>(["", ""]);
   const [hoursPerDay, setHoursPerDay] = useState("6");
 
-  const { output, loading, generate, refine } = useAI({ endpoint: "/api/ai/schedule-maker" });
+  const { output, loading, error, generate, refine } = useAI({ endpoint: "/api/ai/schedule-maker" });
   const { addToHistory } = useHistory();
 
   const selectMode = (m: Mode) => {
@@ -183,7 +183,7 @@ export default function ScheduleMakerPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="📅" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="📅" />
       {output && (
         <>
           <TrustIndicator level="green" message={mode === "exam" ? "Your study plan is ready" : "Your schedule is ready"} />

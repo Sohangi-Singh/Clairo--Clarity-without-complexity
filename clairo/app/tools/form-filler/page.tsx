@@ -16,7 +16,7 @@ import type { PersonaId } from "@/types";
 export default function FormFillerPage() {
   const [step] = useState(1);
   const [persona, setPersona] = useState<PersonaId>("patient-explainer");
-  const { output, loading, generate } = useAI({ endpoint: "/api/ai/form-filler" });
+  const { output, loading, error, generate } = useAI({ endpoint: "/api/ai/form-filler" });
   const { files, addFiles, removeFile } = useUpload();
 
   const handleAnalyze = async () => {
@@ -36,7 +36,7 @@ export default function FormFillerPage() {
 
   const rightPanel = (
     <div>
-      <OutputCard output={output} loading={loading} toolEmoji="📋" />
+      <OutputCard output={output} loading={loading} error={error} toolEmoji="📋" />
       {output && (
         <>
           <TrustIndicator level="yellow" message="Review all answers before submitting the form" disclaimer="Double-check dates and numbers carefully." />

@@ -22,8 +22,9 @@ export async function POST(req: NextRequest) {
     }
 
     return new Response("No form provided", { status: 400 });
-  } catch {
-    return new Response("Failed to process form", { status: 500 });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Failed to process form";
+    return new Response(message, { status: 500 });
   }
 }
 

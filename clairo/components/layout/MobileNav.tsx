@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { X, LayoutDashboard, Clock, Settings, Users } from "lucide-react";
 import { TOOLS } from "@/types";
@@ -56,9 +57,13 @@ export default function MobileNav({ open, onClose, familyMode, onFamilyModeChang
             className="fixed left-0 top-0 bottom-0 w-[280px] bg-[var(--bg-surface)] z-50 lg:hidden overflow-y-auto"
           >
             <div className="flex items-center justify-between px-4 py-4 border-b border-[var(--border)]">
-              <div>
-                <span className="font-display text-[22px] font-semibold text-[var(--accent)]">C</span>
-                <span className="font-display text-[22px] font-semibold text-[var(--text-primary)]">lairo</span>
+              <div className="flex items-center gap-2">
+                <Image src="/clairo-logo.png" alt="Clairo" width={24} height={24} />
+                <span className="logo-wordmark font-display text-[22px] font-semibold">
+                  <span className="text-[var(--text-primary)]">Cl</span>
+                  <span className="text-[var(--accent)]">ai</span>
+                  <span className="text-[var(--text-primary)]">ro</span>
+                </span>
               </div>
               <button
                 onClick={onClose}
