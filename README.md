@@ -3,7 +3,7 @@
 > **Clarity without complexity.**
 
 <p align="center">
-  <img src="./public/clairo-banner.svg" alt="Clairo Banner" width="100%" />
+  <img src="./clairo-banner.svg" alt="Clairo Banner" width="100%" />
 </p>
 
 ---
@@ -186,8 +186,8 @@ It became something I genuinely want my parents to use every day.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/clairo.git
-cd clairo
+git clone https://github.com/Sohangi-Singh/Clairo--Clarity-without-complexity.git
+cd Clairo--Clarity-without-complexity/clairo
 
 # Install dependencies
 npm install
